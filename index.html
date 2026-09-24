@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Подарок 🎁</title>
+  <title>Подарок </title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- ===== СЛАЙД A: ПРИВЕТСТВИЕ ===== -->
 <div class="slide active" id="slideA">
-  <div class="big-emoji">💛</div>
+  <div class="gif-place">
+  <img src="taksa.jpg" alt="Привет">
+</div>
   <h1>Привет, любимая!</h1>
   <p class="slide2-text">У меня для тебя есть кое-что особенное…</p>
   <div class="buttons">
-    <button class="btn-yes" onclick="goToSlide('B')">Начать ✨</button>
+    <button class="btn-yes" onclick="goToSlide('B')">Начать</button>
   </div>
 </div>
 
 <!-- ===== СЛАЙД B: ИГРА НА ПАМЯТЬ ===== -->
 <div class="slide" id="slideB">
-  <h1>Отвлекись на минутку 🎮</h1>
+  <h1>Отвлекись на минутку</h1>
   <p class="hint">Найди все одинаковые пары</p>
 
   <div class="memory-grid" id="memoryGrid"></div>

@@ -193,6 +193,131 @@ button {
   animation: bounce 1.5s infinite;
 }
 
+/* ===== Календарь ===== */
+.calendar {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 20px 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(180, 90, 0, 0.15);
+}
+
+.cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #7A3300;
+  font-size: 1.1rem;
+}
+
+.cal-nav {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #FF6B00;
+  cursor: pointer;
+  padding: 0 10px;
+  box-shadow: none;
+  transition: transform 0.2s;
+}
+
+.cal-nav:hover {
+  transform: scale(1.2);
+  box-shadow: none;
+}
+
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  color: #A05200;
+  font-weight: bold;
+}
+
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+/* Доступный день — жёлто-оранжевый */
+.cal-day.available {
+  background: linear-gradient(135deg, #FFD166, #FFA94D);
+  color: #7A3300;
+}
+
+.cal-day.available:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 107, 0, 0.5);
+}
+
+/* Недоступный день — серый */
+.cal-day.unavailable {
+  color: #bdb0a0;
+  cursor: not-allowed;
+}
+
+.cal-day.unavailable:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Пустые клетки в начале месяца */
+.cal-day.empty {
+  visibility: hidden;
+  cursor: default;
+}
+
+/* Выбранный день */
+.cal-day.selected {
+  background: linear-gradient(135deg, #FF6B00, #E63946);
+  color: #fff;
+  transform: scale(1.15);
+  box-shadow: 0 8px 20px rgba(230, 57, 70, 0.6);
+}
+
+/* Сообщение под календарём */
+.cal-message {
+  margin-top: 12px;
+  color: #7A3300;
+  font-size: 0.9rem;
+  font-weight: bold;
+  min-height: 20px;
+}
+
+.cal-next-btn {
+  margin-top: 12px;
+  padding: 10px 25px;
+  font-size: 0.95rem;
+}
+
+/* Итоговая надпись под календарём */
+.selected-info {
+  color: #7A3300;
+  font-size: 1.1rem;
+  font-weight: bold;
+  min-height: 25px;
+  margin-top: 10px;
+}
+
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-15px); }

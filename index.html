@@ -20,8 +20,31 @@
     </div>
   </div>
 
-  <!-- ===== СЛАЙД 2 ===== -->
+  <!-- ===== СЛАЙД 2: УГАДАЙКА ===== -->
   <div class="slide" id="slide2">
+    <h1>Угадай, что за подарок? 🤔</h1>
+    <p class="hint">Подсказка: связано с красотой 💅</p>
+
+    <input
+      type="text"
+      id="guessInput"
+      class="guess-input"
+      placeholder="Напиши свой вариант..."
+      autocomplete="off"
+    >
+
+    <button class="btn-check" id="checkBtn" onclick="checkGuess()">Проверить</button>
+
+    <p class="attempts" id="attemptsText">Осталось попыток: 3</p>
+
+    <!-- Всплывающая картинка -->
+    <div class="popup" id="popup">
+      <img id="popupImg" src="" alt="">
+    </div>
+  </div>
+
+  <!-- ===== СЛАЙД 3 ===== -->
+  <div class="slide" id="slide3">
     <div class="big-emoji">🎉</div>
     <h1>Ура! Тогда держи свой подарок!</h1>
     <p class="slide2-text">Здесь будет следующий контент 💛</p>

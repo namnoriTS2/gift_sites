@@ -8,8 +8,44 @@
 </head>
 <body>
 
+  <!-- ===== СЛАЙД A: ПРИВЕТСТВИЕ ===== -->
+<div class="slide active" id="slideA">
+  <div class="big-emoji">💛</div>
+  <h1>Привет, любимая!</h1>
+  <p class="slide2-text">У меня для тебя есть кое-что особенное…</p>
+  <div class="buttons">
+    <button class="btn-yes" onclick="goToSlide('B')">Начать ✨</button>
+  </div>
+</div>
+
+<!-- ===== СЛАЙД B: ИГРА НА ПАМЯТЬ ===== -->
+<div class="slide" id="slideB">
+  <h1>Отвлекись на минутку 🎮</h1>
+  <p class="hint">Найди все одинаковые пары</p>
+
+  <div class="memory-grid" id="memoryGrid"></div>
+
+  <p class="memory-status" id="memoryStatus">Найдено пар: 0 / 6</p>
+</div>
+
+<!-- ===== СЛАЙД C: ПРИЧИНЫ ===== -->
+<div class="slide" id="slideC">
+  <h1>5 причин, почему я тебя люблю 💛</h1>
+  <p class="hint">Открой каждую сердечком</p>
+
+  <div class="reasons-list" id="reasonsList"></div>
+
+  <button
+    class="btn-yes reasons-next-btn"
+    id="reasonsNextBtn"
+    style="display:none;"
+    onclick="goToSlide(1)"
+  >
+    Дальше ➡️
+  </button>
+</div>
   <!-- ===== СЛАЙД 1 ===== -->
-  <div class="slide active" id="slide1">
+  <div class="slide" id="slide1">
     <div class="gif-place">
       <img src="minion.jpg" alt="Картинка">
     </div>

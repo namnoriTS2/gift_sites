@@ -2,6 +2,9 @@
 function goToSlide(num) {
   document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
   document.getElementById('slide' + num).classList.add('active');
+
+  if (num === 'B') initMemory();
+  if (num === 'C') initReasons();
 }
 
 // ===== Убегающая кнопка "Нет" =====
@@ -210,3 +213,135 @@ document.getElementById('nextMonth').addEventListener('click', () => {
 
 // Отрисовка календаря
 renderCalendar();
+
+// ===== СЛАЙД B: ИГРА НА ПАМЯТЬ =====
+
+// Эмодзи для пар (6 пар = 12 карточек, сетка 4×3)
+const MEMORY_ITEMS = ['💛', '🌸', '⭐', '🎀', '🍓', '🦋'];
+
+let memoryState = {
+  first: null,
+  second: null,
+  lock: false,
+  matched: 0,
+  initialized: false
+};
+
+const memoryGrid = document.getElementById('memoryGrid');
+const memoryStatus = document.getElementById('memoryStatus');
+
+function initMemory() {
+  if (memoryState.initialized) return;
+  memoryState.initialized = true;
+
+  // Дублируем и перемешиваем
+  const cards = [...MEMORY_ITEMS, ...MEMORY_ITEMS]
+    .map(item => ({ item, id: Math.random() }))
+    .sort(() => Math.random() - 0.5);
+
+  memoryGrid.innerHTML = '';
+
+  cards.forEach(({ item }) => {
+    const card = document.createElement('div');
+    card.className = 'memory-card';
+    card.dataset.item = item;
+    card.textContent = '?';
+    card.addEventListener('click', () => flipCard(card));
+    memoryGrid.appendChild(card);
+  });
+
+  memoryStatus.textContent = `Найдено пар: 0 / ${MEMORY_ITEMS.length}`;
+}
+
+function flipCard(card) {
+  if (memoryState.lock) return;
+  if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
+
+  card.classList.add('flipped');
+  card.textContent = card.dataset.item;
+
+  if (!memoryState.first) {
+    memoryState.first = card;
+  } else {
+    memoryState.second = card;
+    memoryState.lock = true;
+
+    if (memoryState.first.dataset.item === memoryState.second.dataset.item) {
+      // Пара найдена
+      memoryState.first.classList.add('matched');
+      memoryState.second.classList.add('matched');
+      memoryState.matched++;
+
+      memoryStatus.textContent =
+        `Найдено пар: ${memoryState.matched} / ${MEMORY_ITEMS.length}`;
+
+      resetMemoryPick();
+
+      if (memoryState.matched === MEMORY_ITEMS.length) {
+        memoryStatus.textContent = 'Ура! Все пары найдены 🎉';
+        setTimeout(() => goToSlide('C'), 1200);
+      }
+    } else {
+      // Не пара
+      setTimeout(() => {
+        memoryState.first.classList.remove('flipped');
+        memoryState.second.classList.remove('flipped');
+        memoryState.first.textContent = '?';
+        memoryState.second.textContent = '?';
+        resetMemoryPick();
+      }, 800);
+    }
+  }
+}
+
+function resetMemoryPick() {
+  memoryState.first = null;
+  memoryState.second = null;
+  memoryState.lock = false;
+}
+
+// ===== СЛАЙД C: ПРИЧИНЫ =====
+
+const REASONS = [
+  'За твою улыбка, что делает меня только счастилвее',
+  'За твою заботу, которую ты даришь каждый день',
+  'За твой юмор, мне правда смешно',
+  'За твою красоту, что ослепляет меня каждый день',
+  'За всё, что есть в тебе, ведь ты моя любовь'
+];
+
+let reasonsInitialized = false;
+
+function initReasons() {
+  if (reasonsInitialized) return;
+  reasonsInitialized = true;
+
+  const list = document.getElementById('reasonsList');
+  list.innerHTML = '';
+
+  REASONS.forEach((text, i) => {
+    const el = document.createElement('div');
+    el.className = 'reason';
+    el.textContent = `Нажми, чтобы открыть причину №${i + 1} 💛`;
+    el.dataset.opened = 'false';
+
+    el.addEventListener('click', () => {
+      if (el.dataset.opened === 'true') return;
+      el.dataset.opened = 'true';
+      el.classList.add('opened');
+      el.textContent = text;
+
+      checkAllReasonsOpened();
+    });
+
+    list.appendChild(el);
+  });
+}
+
+function checkAllReasonsOpened() {
+  const all = document.querySelectorAll('.reason');
+  const opened = document.querySelectorAll('.reason.opened');
+  if (all.length > 0 && all.length === opened.length) {
+    document.getElementById('reasonsNextBtn').style.display = 'inline-block';
+  }
+}

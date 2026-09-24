@@ -362,3 +362,109 @@ button {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-15px); }
 }
+
+/* ===== СЛАЙД A: Приветствие ===== */
+/* (стили уже совпадают с существующими — .big-emoji, .slide2-text) */
+
+/* ===== СЛАЙД B: Игра на память ===== */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 340px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #FF6B00, #E63946);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.25s ease, background 0.25s ease;
+  box-shadow: 0 6px 15px rgba(180, 90, 0, 0.35);
+  transform-style: preserve-3d;
+}
+
+.memory-card:hover {
+  transform: scale(1.05);
+}
+
+.memory-card.flipped {
+  background: rgba(255, 255, 255, 0.9);
+  color: #7A3300;
+  cursor: default;
+  box-shadow: 0 4px 10px rgba(180, 90, 0, 0.25);
+}
+
+.memory-card.matched {
+  background: #FFE0B2;
+  color: #7A3300;
+  box-shadow: 0 0 0 3px #FF6B00 inset;
+  cursor: default;
+  animation: matchPulse 0.5s ease;
+}
+
+@keyframes matchPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.memory-status {
+  color: #7A3300;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* ===== СЛАЙД C: Причины ===== */
+.reasons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 380px;
+  margin: 10px auto 20px;
+}
+
+.reason {
+  background: linear-gradient(135deg, #FFD166, #FFA94D);
+  color: #7A3300;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 15px 20px;
+  border-radius: 16px;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  transition: transform 0.25s ease, background 0.3s ease;
+  box-shadow: 0 6px 15px rgba(180, 90, 0, 0.3);
+}
+
+.reason:hover {
+  transform: scale(1.03);
+}
+
+.reason.opened {
+  background: linear-gradient(135deg, #FF6B00, #E63946);
+  color: #fff;
+  animation: reasonPop 0.4s ease;
+  cursor: default;
+}
+
+@keyframes reasonPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.reasons-next-btn {
+  margin-top: 15px;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подарок 🎁</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== СЛАЙД 1 ===== -->
+  <div class="slide active" id="slide1">
+    <div class="gif-place" id="gifPlace">
+      <!-- Сюда можно вставить <img src="твоя-гифка.gif"> -->
+      😊
+    </div>
+    <h1>Ты готова получить свой подарок?</h1>
+    <div class="buttons">
+      <button class="btn-yes" onclick="goToSlide(2)">Да 💛</button>
+      <button class="btn-no" id="noBtn">Нет</button>
+    </div>
+  </div>
+
+  <!-- ===== СЛАЙД 2 ===== -->
+  <div class="slide" id="slide2">
+    <div class="big-emoji">🎉</div>
+    <h1>Ура! Тогда держи свой подарок!</h1>
+    <p class="slide2-text">Здесь будет следующий контент 💛</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

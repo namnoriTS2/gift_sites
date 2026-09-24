@@ -186,11 +186,20 @@ function unavailableDay(clickedDay) {
 function goToFinal() {
   const finalText = document.getElementById('finalText');
   if (finalText && window.selectedDate) {
-    finalText.textContent = `Ты записана на ${window.selectedDate} октября 2026. Жду тебя 💛`;
+    finalText.textContent = `Ты записана на ${window.selectedDate} октября 2026 💛`;
   }
-  goToSlide(4);
-}
 
+  // Сначала показываем слайд — ссылка ещё скрыта
+  const linkWrap = document.getElementById('finalLinkWrap');
+  linkWrap.classList.remove('show');
+
+  goToSlide(4);
+
+  // Через 2 секунды плавно показываем кнопку записи
+  setTimeout(() => {
+    linkWrap.classList.add('show');
+  }, 2000);
+}
 // Кнопки ‹ › (месяц пока один)
 document.getElementById('prevMonth').addEventListener('click', () => {
   calMessage.textContent = 'Показан только октябрь 🙂';

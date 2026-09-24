@@ -318,6 +318,46 @@ button {
   margin-top: 10px;
 }
 
+/* ===== Финальная ссылка на запись ===== */
+.final-link-wrap {
+  margin-top: 25px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+
+.final-link-wrap.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.final-link {
+  display: inline-block;
+  padding: 16px 40px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #FF6B00, #E63946);
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(230, 57, 70, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: pulse 2s infinite;
+}
+
+.final-link:hover {
+  transform: scale(1.07);
+  box-shadow: 0 14px 35px rgba(230, 57, 70, 0.7);
+}
+
+/* Мягкое «дыхание» кнопки */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 10px 25px rgba(230, 57, 70, 0.5); }
+  50%      { box-shadow: 0 10px 35px rgba(230, 57, 70, 0.85); }
+}
+
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-15px); }

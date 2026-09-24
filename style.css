@@ -51,7 +51,7 @@ body {
 }
 
 .gif-place img {
-  max-width: 280px;
+  max-width: 160px;
   height: auto;
   display: block;
   border-radius: 20px;

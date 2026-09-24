@@ -43,12 +43,41 @@
     </div>
   </div>
 
-  <!-- ===== СЛАЙД 3 ===== -->
-  <div class="slide" id="slide3">
-    <div class="big-emoji">🎉</div>
-    <h1>Ура! Тогда держи свой подарок!</h1>
-    <p class="slide2-text">Здесь будет следующий контент 💛</p>
+ <!-- ===== СЛАЙД 3: КАЛЕНДАРЬ ===== -->
+<div class="slide" id="slide3">
+  <h1>Выбери удобный день 📅</h1>
+  <p class="hint">Жёлтые дни — свободны для записи</p>
+
+  <div class="calendar">
+    <div class="cal-header">
+      <button class="cal-nav" id="prevMonth">‹</button>
+      <span id="monthLabel">Октябрь 2026</span>
+      <button class="cal-nav" id="nextMonth">›</button>
+    </div>
+
+    <div class="cal-weekdays">
+      <span>Пн</span><span>Вт</span><span>Ср</span>
+      <span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+    </div>
+
+    <div class="cal-days" id="calDays"></div>
+
+    <p class="cal-message" id="calMessage"></p>
+
+    <button class="btn-yes cal-next-btn" id="calNextBtn" style="display:none;">
+      Перейти к ближайшей дате
+    </button>
   </div>
+
+  <div class="selected-info" id="selectedInfo"></div>
+</div>
+
+<!-- ===== СЛАЙД 4: ФИНАЛ ===== -->
+<div class="slide" id="slide4">
+  <div class="big-emoji">🎉</div>
+  <h1>Ура! Ты записана!</h1>
+  <p class="slide2-text" id="finalText">Жду тебя 💛</p>
+</div>
 
   <script src="script.js"></script>
 </body>

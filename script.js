@@ -186,7 +186,7 @@ function unavailableDay(clickedDay) {
 function goToFinal() {
   const finalText = document.getElementById('finalText');
   if (finalText && window.selectedDate) {
-    finalText.textContent = `Ты записана на ${window.selectedDate} октября 2026 💛`;
+    finalText.textContent = `Ты выбрала дату ${window.selectedDate} октября 2026 💛`;
   }
 
   // Сначала показываем слайд — ссылка ещё скрыта

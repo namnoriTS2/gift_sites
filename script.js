@@ -29,7 +29,7 @@ noBtn.addEventListener('click', (e) => {
 
 // 👉 ЗДЕСЬ МЕНЯЕМ ПРАВИЛЬНЫЙ ОТВЕТ И КАРТИНКИ
 const CORRECT_ANSWERS = ['прическа', 'причёска', 'стрижка', 'парикмахер', 'прическа'];
-const IMG_WRONG = 'wrong.png';   // картинка при неверном ответе
+const IMG_WRONG = 'minion2.jpg';   // картинка при неверном ответе
 const IMG_RIGHT = 'right.png';   // картинка при верном ответе
 
 let attemptsLeft = 3;

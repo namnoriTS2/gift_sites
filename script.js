@@ -172,17 +172,15 @@ function pickDay(day) {
   calMessage.textContent = `Отличный выбор! 💛`;
   calNextBtn.style.display = 'none';
 
-  // Показать финальное подтверждение
+  // Показать подтверждение с датой
   selectedInfo.textContent = `Ты записана на ${day} октября 2026 🎉`;
 
-  // Через 1.2 секунды — переход на финальный слайд
-  setTimeout(() => {
-    const finalText = document.getElementById('finalText');
-    if (finalText) {
-      finalText.textContent = `Ты записана на ${day} октября 2026. Жду тебя 💛`;
-    }
-    goToSlide(4);
-  }, 1200);
+  // 👇 Показать кнопку перехода на финальный слайд
+  const nextBtn = document.getElementById('toFinalBtn');
+  nextBtn.style.display = 'inline-block';
+
+  // Сохранить выбранный день, чтобы использовать на финальном слайде
+  window.selectedDate = day;
 }
 
 function unavailableDay() {

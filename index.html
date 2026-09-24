@@ -46,7 +46,7 @@
  <!-- ===== СЛАЙД 3: КАЛЕНДАРЬ ===== -->
 <div class="slide" id="slide3">
   <h1>Выбери удобный день 📅</h1>
-  <p class="hint">Жёлтые дни — свободны для записи</p>
+  <p class="hint">Выбери удобный для тебя день</p>
 
   <div class="calendar">
     <div class="cal-header">
@@ -69,13 +69,22 @@
     </button>
   </div>
 
+  <button
+  class="btn-yes"
+  id="toFinalBtn"
+  style="display:none; margin-top: 20px;"
+  onclick="goToFinal()"
+>
+  Дальше ➡️
+</button>
+
   <div class="selected-info" id="selectedInfo"></div>
 </div>
 
 <!-- ===== СЛАЙД 4: ФИНАЛ ===== -->
 <div class="slide" id="slide4">
   <div class="big-emoji">🎉</div>
-  <h1>Ура! Ты записана!</h1>
+  <h1>Ура! Ты выбрала дату</h1>
   <p class="slide2-text" id="finalText">Жду тебя 💛</p>
 </div>
 
